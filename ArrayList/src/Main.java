@@ -33,12 +33,12 @@ class ArrayList{
             return;
         }
 
-         if(index>size){
+         if(index>=size){
              System.out.println("Index "+index+" out of range");
              return;
          }
 
-        for(int i=index;i<size;i++){
+        for(int i=index;i<size-1;i++){
             data[i]=data[i+1];
         }
         size--;
@@ -49,17 +49,20 @@ class ArrayList{
          for(int i=0;i<size;i++){
              if(data[i]==value){
                  index=i;
+                 break;
              }
          }
 
-        for(int i=index;i<size;i++){
+        if(index==-1){
+            System.out.println(value +" is not found");
+            return;
+        }
+
+        for(int i=index;i<size-1;i++){
             data[i]=data[i+1];
         }
         size--;
 
-        if(index==-1){
-            System.out.println(value +" is not found");
-        }
     }
 
     void updateByIndex(int newValue,int index){
@@ -68,7 +71,7 @@ class ArrayList{
             return;
         }
 
-        if(index>size){
+        if(index>=size){
             System.out.println("Index "+index+" out of range");
             return;
         }
