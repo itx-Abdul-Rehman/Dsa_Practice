@@ -28,6 +28,11 @@ class ArrayList{
     }
 
     void removeByIndex(int index){
+        if(index < 0){
+            System.out.println(index+" invalid index");
+            return;
+        }
+
          if(index>size){
              System.out.println("Index "+index+" out of range");
              return;
@@ -57,6 +62,28 @@ class ArrayList{
         }
     }
 
+    void updateByIndex(int newValue,int index){
+        if(index < 0){
+            System.out.println(index+" invalid index");
+            return;
+        }
+
+        if(index>size){
+            System.out.println("Index "+index+" out of range");
+            return;
+        }
+
+        data[index]=newValue;
+    }
+
+    void updateByValue(int oldValue, int newValue){
+         for(int i=0;i<size;i++){
+             if(data[i]==oldValue){
+                 data[i]=newValue;
+             }
+         }
+    }
+
   int size(){
          return size;
   }
@@ -81,8 +108,15 @@ public class Main {
         myList.add(4);
         myList.add(5);
         myList.display();
+        System.out.println(myList.size());
         myList.removeByIndex(2);
         myList.display();
-
+        System.out.println(myList.size());
+        myList.updateByValue(4,44);
+        myList.display();
+        myList.updateByIndex(6,0);
+        myList.display();
+        myList.removeByValue(6);
+        myList.display();
     }
 }
