@@ -170,7 +170,7 @@ class SinglyLinklist{
             }
             temp=temp.getNext();
             count++;
-        }
+        } 
     }
 
     int size(){
